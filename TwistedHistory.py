@@ -12,7 +12,6 @@ class Intro(Scene):
         text = m.Text("Longino Films", font_size=85, font="Times New Roman", color=longino_color)
         text.move_to(m.ORIGIN)
         peak = m.Text("so peak", font_size=35, font="Times New Roman", color=longino_color)
-        lf = m.Text("L F", font_size=100, font="Times New Roman", color=m.BLACK )
 
         self.wait(0.5)
 
@@ -63,4 +62,78 @@ class Intro(Scene):
         self.play(
             m.FadeOut(peak),
             run_time=2.25
+        )
+
+        lf = m.Text("Longino Films Presents:", font_size=60, font="Times New Roman", color=(longino_color))
+        written_by = m.Text("A Film Written By:\nOwen Mahoney & Bennett Rogers", font_size=60, font="Times New Roman", color=(longino_color))
+        featuring = m.Text("Featuring Special Guest Stars: ", font_size=60, font="Times New Roman", color=(longino_color))
+        slb = m.Text("Steven Lucas Bently", font_size=60, font="Times New Roman", color=(longino_color))
+        agk = m.Text("as Ghenghis Khan", font_size=45, font="Times New Roman", color=(longino_color))
+        a = m.Text("&", font_size=60, font="Times New Roman", color=(longino_color))
+        fgen4runnerimb = m.Text("First Gen 4Runner in Medium Blue", font_size=60, font="Times New Roman", color=(longino_color))
+        asfgen4runnerimb = m.Text("as First Gen 4Runner in Medium Blue", font_size=45, font="Times New Roman", color=(longino_color))
+
+        lf.move_to(m.ORIGIN)
+        
+        self.play(
+            m.Write(lf),
+            run_time=2.75
+        )
+
+        self.wait(2)
+
+        written_by.move_to(m.ORIGIN)
+
+        self.play(
+            m.ReplacementTransform(lf, written_by),
+            run_time=1.5
+        )
+
+        self.wait(2)
+
+        featuring.move_to(m.ORIGIN)
+
+        self.play(
+            m.ReplacementTransform(written_by, featuring),
+            run_time=1.5
+        )
+
+        self.wait(2)
+
+        slb.move_to(m.ORIGIN, m.UP*3)
+        agk.next_to(slb, m.DOWN, buff=0.5)
+        slbagk = m.VGroup(slb, agk)
+        slbagk.move_to(m.UP*0.25)
+
+        self.play(
+            m.ReplacementTransform(featuring, slbagk),
+            run_time=1.5
+        )
+
+        self.wait(2)
+
+        a.move_to(m.ORIGIN)
+
+        self.play(
+            m.ReplacementTransform(slbagk, a),
+            run_time=1.5
+        )
+
+        self.wait(2)
+
+        fgen4runnerimb.move_to(m.ORIGIN, m.UP*3)
+        asfgen4runnerimb.next_to(fgen4runnerimb, m.DOWN, buff=0.5)
+        fg4r = m.VGroup(fgen4runnerimb, asfgen4runnerimb)
+        fg4r.move_to(m.UP*0.25)
+
+        self.play(
+            m.ReplacementTransform(a, fg4r),
+            run_time=1.5
+        )
+
+        self.wait(2)
+
+        self.play(
+            m.FadeOut(fg4r),
+            run_time=2
         )
