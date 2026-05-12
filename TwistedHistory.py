@@ -22,7 +22,7 @@ class Intro(Scene):
         self.wait(0.5)
 
         self.play(
-            m.Write(longino_py_svg),
+            m.DrawBorderThenFill(longino_py_svg),
             m.Write(text, lag_ratio=0.05),
             run_time=3
         )
