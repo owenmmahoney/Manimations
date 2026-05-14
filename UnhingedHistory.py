@@ -139,3 +139,17 @@ class Test(Scene):
             m.FadeTransform(longino_py_svg, longino_py),
             run_time=2
         )
+        
+class Outro(Scene):
+    def construct(self):
+        
+        toyotal = m.SVGMobject(r"assets\toyota-logo.svg").scale(1.5).set_color(m.WHITE)
+        toyota = m.Text("Team Toyota Wins!", font_size=40)
+        toyotal.move_to(m.ORIGIN)
+        toyota.next_to(toyotal, m.DOWN, buff=0.25)
+        
+        self.play(
+            m.DrawBorderThenFill(toyotal),
+            m.Write(toyota),
+            run_time=3
+        )
