@@ -153,3 +153,25 @@ class Outro(Scene):
             m.Write(toyota),
             run_time=3
         )
+        
+        ga = m.VGroup(toyotal, toyota)
+        
+        longino_py_svg = m.SVGMobject(r"assets/longisvg.svg").scale(1.25)
+        longino_py_svg.move_to(m.ORIGIN)
+        
+        self.wait(6)
+        
+        self.play(
+            m.ReplacementTransform(ga, longino_py_svg),
+            run_time=3
+        )
+        
+        self.wait(2)
+        
+        self.play(
+            m.FadeOut(longino_py_svg),
+            run_time=3
+        )
+        
+        
+        
